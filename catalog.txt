@@ -1,0 +1,17 @@
+1) Backend for image detection application.
+
+    - Start the server using express framework.
+
+    - Plan APIs
+        - / --> home
+        - /signin --> POST request = success/fail
+        - /register --> POST request = user
+        - /profile/:userid --> GET request = return new user
+        - /image --> PUT --> return updated user
+    
+    - Implement the routes
+
+    - Create a database in postgresql "Valentina Studio"
+        - connect the database to our server using "knex.js".
+        - since we are using postgresql, we have to install pg package.
+        - 
