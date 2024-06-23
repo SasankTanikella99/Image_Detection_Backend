@@ -15,6 +15,9 @@ dotenv.config()
 const db = knex({
     client: 'pg',
     connection: {
+      ssl: {
+        rejectUnauthorized: false // Only if Render requires this
+      },
       connectionString:process.env.DATABASE_URL,
 
       host: process.env.DATABASE_HOST,
