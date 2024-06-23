@@ -3,20 +3,25 @@ import bcrypt from 'bcrypt';
 import cors from 'cors';
 import bodyParser from 'body-parser';
 import knex from 'knex';
+import dotenv from 'dotenv'
 
 import handleRegister from './controllers/register.js';
 import handleSignin from './controllers/signin.js';
 import { handleImageDetect, handleApiCall } from './controllers/image.js';
 import handleProfile from './controllers/profile.js';
 
+dotenv.config()
+
 const db = knex({
     client: 'pg',
     connection: {
-      host: '127.0.0.1',
-      port: 5432,
-      user: 'sasanktanikella',
-      password: 'root',
-      database: 'image_detection',
+      connectionString:process.env.DATABASE_URL,
+
+      host: process.env.DATABASE_HOST,
+      port: process.env.DATABASE_PORT,
+      user: process.env.DATABASE_USER,
+      password: process.env.DATABASE_PASSWORD,
+      database: process.env.DATABASE_NAME,
     },
 });
 
