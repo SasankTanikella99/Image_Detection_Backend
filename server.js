@@ -31,7 +31,11 @@ const db = knex({
 const app = express();
 
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+    origin: 'https://image-detection-frontend.onrender.com',
+    methods: ['GET', 'POST', 'PUT'],
+    credentials: true
+  }));
 app.use(bodyParser.json());
 
 
